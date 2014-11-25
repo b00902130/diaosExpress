@@ -1,0 +1,16 @@
+{
+  "name": "diaoExpress",
+  "version": "0.0.0",
+  "description": "ee",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wilson",
+  "license": "NTU",
+  "dependencies": {
+    "express": "^3.9.0",
+    "ejs": "^1.0.0",
+    "mongodb": "^1.4.22"
+  }
+}
