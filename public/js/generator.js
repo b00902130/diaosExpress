@@ -20,7 +20,7 @@ $('#generate').click(function(){
 });
 
 
-$('#getByID').click(function(){
+$('#getGoodsByID').click(function(){
 	alert('test!');
 
 	var object = {};
@@ -32,15 +32,30 @@ $('#getByID').click(function(){
 	});
 });
 
-
-// $('getListByCategory').click(function(){
+$('getGoodsByName').click(function(){
 	
-// });
+});
 
-// $('addNew').click(function(){
+$('getGoodsListByCategory').click(function(){
 	
-// });
+});
 
-// $('deleteGoodsByName').click(function(){
+$('addNewGoods').click(function(){
 	
-// });
+});
+
+$('deleteGoodsByID').click(function(){
+	
+});
+
+$('deleteGoodsByName').click(function(){
+	
+});
+
+$('modifyGoodsByName').click(function(){
+	
+});
+
+$('modifyGoodsByID').click(function(){
+	
+});

@@ -24,10 +24,10 @@ exports.getGoodsByID = function(req, res){
 	// Connect using the connection string
   	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
 		assert.equal(null, err);
-		var collection = db.collection("mobiles");
+		var collection = db.collection("allGoods");
 		var query = {};
 		query.goodsID = parseInt(req.body.goodsID);
-		collection.findOne(query, function(err, item) {
+		collection.find(query, function(err, item) {
 			assert.equal(null, err);
 			console.log(item);
 			res.send(item);
@@ -39,7 +39,21 @@ exports.getGoodsByID = function(req, res){
 };
 
 exports.getGoodsByName = function(req, res){
-	res.render('index');
+	// res.render('index');
+	console.log(req.body.categoryID);
+	// Connect using the connection string
+  	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
+		assert.equal(null, err);
+		var collection = db.collection("allGoods");
+		var query = {};
+		query.categoryID = req.body.goodsID;
+		collection.find(query, function(err, item) {
+			assert.equal(null, err);
+			console.log(item);
+			res.send(item);
+			db.close();
+		})
+	});
 };
 
 exports.getGoodsListByCategory = function(req, res){

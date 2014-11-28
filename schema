@@ -1,36 +1,66 @@
 schema
 
-goodsID			Number	否	3433222					产品ID
-commodity_id	Number	否	1						品类ID
-outer_id		String	否	123456					外部产品ID
-cid				Number	否	50012286				商品类目ID.必须是叶子类目ID
+goodID			Number	否	3433222					产品ID
+categoryID		Number	否	1						品类ID
+outerID			String	否	123456					外部产品ID
 tsc				String	否	hkjki					淘宝标准产品编码
-barcode_str		String	否	6945091708456			产品条码信息，仅在taobao.products.search接口且商城可用
+barcode			String	否	6945091708456			产品条码信息，仅在taobao.products.search接口且商城可用
 
 name			String	否	惠普笔记本				产品名称
-cat_name		String	否	日用品					商品类目名称
+categoryName	String	否	日用品					商品类目名称
 
 price			Price	否	200.07					产品的市场价.单位为元.精确到2位小数;如:200.07
-shop_price		String	否	12						产品的店内价格
-standard_price	String	否	12						产品的标准价格
+shopPrice		String	否	12						产品的店内价格
+standardPrice	String	否	12						产品的标准价格
 
 desc			String	否	这是一款产品				产品的描述.最大25000个字节
-pic_url			String	否	http://host/image_path	产品的主图片地址.(绝对地址,格式:http://host/image_path)
+picUrl			String	否	http://host/image_path	产品的主图片地址.(绝对地址,格式:http://host/image_path)
 
 modified		Date	否	2000-01-01 00:00:00		修改时间.格式:yyyy-mm-dd hh:mm:ss
 created			Date	否	2000-01-01 00:00:00		创建时间.格式:yyyy-mm-dd hh:mm:ss
 status			Number	否	1						当前状态(0 商家确认 1 屏蔽 3 小二确认 2 未确认 -1 删除)
 
 level			Number	否	2						产品的级别level
-rate_num		Number	否	1234					产品的评分次数
-sale_num		Number	否	1234					产品的销售量
-collect_num		Number	否	12345					产品的collect次数（不提供数据，返回0)
+rateNum		Number	否	1234					产品的评分次数
+saleNum		Number	否	1234					产品的销售量
+collectNum		Number	否	12345					产品的collect次数（不提供数据，返回0)
 
 
-vertical_market	Number	否	3						垂直市场,如：3（3C），4（鞋城）
+verticalMarket	Number	否	3						垂直市场,如：3（3C），4（鞋城）
 binds			String	否	pid:vid;pid:vid			产品的非关键属性列表.格式:pid:vid;pid:vid.
-sale_props		String	否	pid:vid;pid:vid			产品的销售属性列表.格式:pid:vid;pid:vid
+saleProps		String	否	pid:vid;pid:vid			产品的销售属性列表.格式:pid:vid;pid:vid
 props			String	否	pid:vid;pid:vid			产品的关键属性列表.格式：pid:vid;pid:vid
-props_str		String	否	品牌:诺基亚;型号:N73		产品的关键属性字符串列表.比如:品牌:诺基亚;型号:N73(注：属性名称中的冒号":"被转换为："#cln#"; 分号";"被转换为："#scln#" )
-customer_props	String	否	20000:优衣库				用户自定义属性,结构：pid1:value1;pid2:value2 例如：“20000:优衣库”，表示“品牌:优衣库”
+propsStr		String	否	品牌:诺基亚;型号:N73		产品的关键属性字符串列表.比如:品牌:诺基亚;型号:N73(注：属性名称中的冒号":"被转换为："#cln#"; 分号";"被转换为："#scln#" )
+customerProps	String	否	20000:优衣库				用户自定义属性,结构：pid1:value1;pid2:value2 例如：“20000:优衣库”，表示“品牌:优衣库”
 
+
+
+
+db.categories.insert({categoryID:"1", categoryName:"mobile", imgURL:"http://store.storeimages.cdn-apple.com/7991/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone6/box/iphone6-box-space-gray-2014_GEO_TW?wid=478&hei=595&fmt=png-alpha&qlt=95&.v=1410266451913"})
+db.categories.insert({categoryID:"2", categoryName:"pc", imgURL:"http://img.technews.tw/wp-content/uploads/2014/01/HP-Pc.jpg"})
+db.categories.insert({categoryID:"3", categoryName:"tablet", imgURL:"http://images.amazon.com/images/G/01/electronics/sony/sony-tablets1-hands2-lg.jpg"})
+db.categories.insert({categoryID:"4", categoryName:"disk", imgURL:"http://upload.wikimedia.org/wikipedia/commons/e/e6/Hard_disk_Western_Digital_WD1000_1_(dark1).jpg"})
+db.categories.insert({categoryID:"5", categoryName:"earphone", imgURL:"http://i01.i.aliimg.com/wsphoto/v0/701137007_3/Multifunction-5-in-1-HiFi-Wireless-Headphone-Earphone-Hi-Fi-Headset-Wireless-Monitor-FM-Radio-MP3.jpg"})
+db.categories.insert({categoryID:"6", categoryName:"keyboard", imgURL:"http://media02.hongkiat.com/cool-pc-keyboards/pc-keyboards-RazerTron.jpg"})
+db.categories.insert({categoryID:"7", categoryName:"mouse", imgURL:"http://www.sys2k.com/insights/wp-content/uploads/2012/04/Wired-Optical-Mouse-LD-1141.jpg"})
+db.categories.insert({categoryID:"8", categoryName:"car", imgURL:"http://images2.fanpop.com/images/photos/4200000/od-audi-4294891-1280-960.jpg"})
+db.categories.insert({categoryID:"9", categoryName:"hat", imgURL:"http://www.gohappy.com.tw/images/product/26/798901/798901_3_1.jpg?948876"})
+db.categories.insert({categoryID:"10", categoryName:"whores", imgURL:"http://amateurinaction.com/wp-content/uploads/2012/08/photo-Amateur-Babe-Big-Tits-Hot-Non-Nude-952404934.jpg"})
+db.categories.insert({categoryID:"11", categoryName:"shoes", imgURL:"http://www.vegetarian-shoes.co.uk/Portals/42/product/images/prd0683d04d-faaf-4826-a692-45d2e5cfbe3b.jpg"})
+db.categories.insert({categoryID:"12", categoryName:"laptop", imgURL:"https://blogs.sans.org/computer-forensics/files/2013/06/macbook_air-closing-800.jpg"})
+
+
+category
+
+1, mobile, url
+2, pc, url
+3, tablet, url
+4, disk
+5, earphone
+6, keyboard
+7, mouse
+8, car
+9, hat
+10, whores
+11, shoes
+12, laptop
