@@ -29,7 +29,7 @@ app.get('/', index.load);
 app.post('/getGoodsByID', index.getGoodsByID);
 // app.post('/getGoodsByName', index.getGoodsByName);
 // app.post('/getGoodsListByCategory', index.getGoodsListByCategory);
-// app.post('/addNewGoods', index.addNewGodds);
+app.post('/addNewGoods', index.addNewGoods);
 // app.post('/deleteGoodsByName', index.deleteGoodsByName);
 // app.post('/deleteGoodsByID', index.deleteGoodsByID);
 // app.post('/modifyGoodsByName', index.modifyGoodsByName);

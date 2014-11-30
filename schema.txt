@@ -14,15 +14,15 @@ shopPrice		String	否	12						产品的店内价格
 standardPrice	String	否	12						产品的标准价格
 
 desc			String	否	这是一款产品				产品的描述.最大25000个字节
-picUrl			String	否	http://host/image_path	产品的主图片地址.(绝对地址,格式:http://host/image_path)
+imgURL			String	否	http://host/image_path	产品的主图片地址.(绝对地址,格式:http://host/image_path)
 
 modified		Date	否	2000-01-01 00:00:00		修改时间.格式:yyyy-mm-dd hh:mm:ss
 created			Date	否	2000-01-01 00:00:00		创建时间.格式:yyyy-mm-dd hh:mm:ss
 status			Number	否	1						当前状态(0 商家确认 1 屏蔽 3 小二确认 2 未确认 -1 删除)
 
 level			Number	否	2						产品的级别level
-rateNum		Number	否	1234					产品的评分次数
-saleNum		Number	否	1234					产品的销售量
+rateNum			Number	否	1234					产品的评分次数
+saleNum			Number	否	1234					产品的销售量
 collectNum		Number	否	12345					产品的collect次数（不提供数据，返回0)
 
 
@@ -33,21 +33,6 @@ props			String	否	pid:vid;pid:vid			产品的关键属性列表.格式：pid:vi
 propsStr		String	否	品牌:诺基亚;型号:N73		产品的关键属性字符串列表.比如:品牌:诺基亚;型号:N73(注：属性名称中的冒号":"被转换为："#cln#"; 分号";"被转换为："#scln#" )
 customerProps	String	否	20000:优衣库				用户自定义属性,结构：pid1:value1;pid2:value2 例如：“20000:优衣库”，表示“品牌:优衣库”
 
-
-
-
-db.categories.insert({categoryID:"1", categoryName:"mobile", imgURL:"http://store.storeimages.cdn-apple.com/7991/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone6/box/iphone6-box-space-gray-2014_GEO_TW?wid=478&hei=595&fmt=png-alpha&qlt=95&.v=1410266451913"})
-db.categories.insert({categoryID:"2", categoryName:"pc", imgURL:"http://img.technews.tw/wp-content/uploads/2014/01/HP-Pc.jpg"})
-db.categories.insert({categoryID:"3", categoryName:"tablet", imgURL:"http://images.amazon.com/images/G/01/electronics/sony/sony-tablets1-hands2-lg.jpg"})
-db.categories.insert({categoryID:"4", categoryName:"disk", imgURL:"http://upload.wikimedia.org/wikipedia/commons/e/e6/Hard_disk_Western_Digital_WD1000_1_(dark1).jpg"})
-db.categories.insert({categoryID:"5", categoryName:"earphone", imgURL:"http://i01.i.aliimg.com/wsphoto/v0/701137007_3/Multifunction-5-in-1-HiFi-Wireless-Headphone-Earphone-Hi-Fi-Headset-Wireless-Monitor-FM-Radio-MP3.jpg"})
-db.categories.insert({categoryID:"6", categoryName:"keyboard", imgURL:"http://media02.hongkiat.com/cool-pc-keyboards/pc-keyboards-RazerTron.jpg"})
-db.categories.insert({categoryID:"7", categoryName:"mouse", imgURL:"http://www.sys2k.com/insights/wp-content/uploads/2012/04/Wired-Optical-Mouse-LD-1141.jpg"})
-db.categories.insert({categoryID:"8", categoryName:"car", imgURL:"http://images2.fanpop.com/images/photos/4200000/od-audi-4294891-1280-960.jpg"})
-db.categories.insert({categoryID:"9", categoryName:"hat", imgURL:"http://www.gohappy.com.tw/images/product/26/798901/798901_3_1.jpg?948876"})
-db.categories.insert({categoryID:"10", categoryName:"whores", imgURL:"http://amateurinaction.com/wp-content/uploads/2012/08/photo-Amateur-Babe-Big-Tits-Hot-Non-Nude-952404934.jpg"})
-db.categories.insert({categoryID:"11", categoryName:"shoes", imgURL:"http://www.vegetarian-shoes.co.uk/Portals/42/product/images/prd0683d04d-faaf-4826-a692-45d2e5cfbe3b.jpg"})
-db.categories.insert({categoryID:"12", categoryName:"laptop", imgURL:"https://blogs.sans.org/computer-forensics/files/2013/06/macbook_air-closing-800.jpg"})
 
 
 category
@@ -64,3 +49,19 @@ category
 10, whores
 11, shoes
 12, laptop
+
+
+db.categories.insert({categoryID:"1", categoryName:"mobile", imgURL:"http://store.storeimages.cdn-apple.com/7991/as-images.apple.com/is/image/AppleInc/aos/published/images/i/ph/iphone6/box/iphone6-box-space-gray-2014_GEO_TW?wid=478&hei=595&fmt=png-alpha&qlt=95&.v=1410266451913"})
+db.categories.insert({categoryID:"2", categoryName:"pc", imgURL:"http://img.technews.tw/wp-content/uploads/2014/01/HP-Pc.jpg"})
+db.categories.insert({categoryID:"3", categoryName:"tablet", imgURL:"http://images.amazon.com/images/G/01/electronics/sony/sony-tablets1-hands2-lg.jpg"})
+db.categories.insert({categoryID:"4", categoryName:"disk", imgURL:"http://upload.wikimedia.org/wikipedia/commons/e/e6/Hard_disk_Western_Digital_WD1000_1_(dark1).jpg"})
+db.categories.insert({categoryID:"5", categoryName:"earphone", imgURL:"http://i01.i.aliimg.com/wsphoto/v0/701137007_3/Multifunction-5-in-1-HiFi-Wireless-Headphone-Earphone-Hi-Fi-Headset-Wireless-Monitor-FM-Radio-MP3.jpg"})
+db.categories.insert({categoryID:"6", categoryName:"keyboard", imgURL:"http://media02.hongkiat.com/cool-pc-keyboards/pc-keyboards-RazerTron.jpg"})
+db.categories.insert({categoryID:"7", categoryName:"mouse", imgURL:"http://www.sys2k.com/insights/wp-content/uploads/2012/04/Wired-Optical-Mouse-LD-1141.jpg"})
+db.categories.insert({categoryID:"8", categoryName:"car", imgURL:"http://images2.fanpop.com/images/photos/4200000/od-audi-4294891-1280-960.jpg"})
+db.categories.insert({categoryID:"9", categoryName:"hat", imgURL:"http://www.gohappy.com.tw/images/product/26/798901/798901_3_1.jpg?948876"})
+db.categories.insert({categoryID:"10", categoryName:"whores", imgURL:"http://amateurinaction.com/wp-content/uploads/2012/08/photo-Amateur-Babe-Big-Tits-Hot-Non-Nude-952404934.jpg"})
+db.categories.insert({categoryID:"11", categoryName:"shoes", imgURL:"http://www.vegetarian-shoes.co.uk/Portals/42/product/images/prd0683d04d-faaf-4826-a692-45d2e5cfbe3b.jpg"})
+db.categories.insert({categoryID:"12", categoryName:"laptop", imgURL:"https://blogs.sans.org/computer-forensics/files/2013/06/macbook_air-closing-800.jpg"})
+
+

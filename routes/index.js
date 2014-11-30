@@ -12,6 +12,7 @@ var Db = require('mongodb').Db,
     assert = require('assert');
 // var router = express.Router();
 
+
 /* GET home page. */
 
 exports.load = function(req, res){
@@ -61,7 +62,23 @@ exports.getGoodsListByCategory = function(req, res){
 };
 
 exports.addNewGoods = function(req, res){
-	res.render('index');
+	// res.render('index');
+	console.log(req.body.operation);
+	var data;
+	// Connect using the connection string
+  	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
+		assert.equal(null, err);
+		var collection = db.collection("allGoods");
+		// var doc = [];
+		// query.categoryID = req.body.goodsID;
+		collection.insert(req.body, function(err, item) {
+			assert.equal(null, err);
+			console.log(item);
+			data = item;
+			db.close();
+		})
+	});
+	res.send(data);
 };
 
 exports.deleteGoodsByName = function(req, res){
