@@ -28,6 +28,7 @@ $('#generate').click(function(){
 		'", rateNum:"' + $('#rateNum').val() +
 		'", saleNum:"' + $('#saleNum').val() +
 		'", collectNum:"' + $('#collectNum').val() +
+		'", inventoryNum:"' + $('#inventoryNum').val() +
 		'", verticalMarket:"' + $('#verticalMarket').val() +
 		'", binds:"' + $('#binds').val() +
 		'", saleProps:"' + $('#saleProps').val() +
@@ -95,6 +96,7 @@ $('#addNewGoods').click(function(){
 	object.rateNum = $('#rateNum').val();
 	object.saleNum = $('#saleNum').val();
 	object.collectNum = $('#collectNum').val();
+	object.inventoryNum = $('#inventoryNum').val();
 	object.verticalMarket = $('#verticalMarket').val();
 	object.binds = $('#binds').val();
 	object.saleProps = $('#saleProps').val();
