@@ -27,8 +27,11 @@ exports.getGoodsByID = function(req, res){
 		assert.equal(null, err);
 		var collection = db.collection("allGoods");
 		var query = {};
-		query.goodsID = parseInt(req.body.goodsID);
-		collection.find(query, function(err, item) {
+		// var filter = [];
+		// filter["goodsID"] = parseInt(req.body.goodsID);
+		query.goodsID = req.body.goodsID;
+		console.log(query.goodsID);
+		collection.findOne(query, function(err, item) {
 			assert.equal(null, err);
 			console.log(item);
 			res.send(item);
@@ -41,14 +44,14 @@ exports.getGoodsByID = function(req, res){
 
 exports.getGoodsByName = function(req, res){
 	// res.render('index');
-	console.log(req.body.categoryID);
+	console.log(req.body.goodsName);
 	// Connect using the connection string
   	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
 		assert.equal(null, err);
 		var collection = db.collection("allGoods");
 		var query = {};
-		query.categoryID = req.body.goodsID;
-		collection.find(query, function(err, item) {
+		query['name'] = req.body.goodsName;
+		collection.findOne(query, function(err, item) {
 			assert.equal(null, err);
 			console.log(item);
 			res.send(item);
@@ -58,7 +61,21 @@ exports.getGoodsByName = function(req, res){
 };
 
 exports.getGoodsListByCategory = function(req, res){
-	res.render('index');
+	console.log(req.body.categoryName);
+	// Connect using the connection string
+  	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
+		assert.equal(null, err);
+		var collection = db.collection("allGoods");
+		var query = {};
+		query['categoryName'] = req.body.categoryName;
+		collection.find(query).toArray(function(err, docs) {
+			assert.equal(null, err);
+			console.log(docs);
+			res.send(docs);
+			db.close();
+		})
+	});
+	// res.render('index');
 };
 
 exports.addNewGoods = function(req, res){
@@ -82,11 +99,56 @@ exports.addNewGoods = function(req, res){
 };
 
 exports.deleteGoodsByName = function(req, res){
-	res.render('index');
+	// res.render('index');
+	console.log(req.body.deletedName);
+	// var data;
+	var selector = {};
+	selector['name'] = req.body.deletedName;
+	// Connect using the connection string
+  	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
+		
+
+		// Fetch a collection to insert document into
+		db.collection("allGoods", function(err, collection) {		    
+
+		// Remove all the document
+			collection.remove(selector, {w:1}, function(err, numberOfRemovedDocs) {
+				// assert.equal(null, err);
+				// assert.equal(1, numberOfRemovedDocs);
+				console.log('numberOfRemovedDocs is : ' + numberOfRemovedDocs);
+				res.send('numberOfRemovedDocs is : ' + numberOfRemovedDocs);
+				db.close();
+			});
+		})
+	
+	});
+	// res.send(data);
 };
 
 exports.deleteGoodsByID = function(req, res){
-	res.render('index');
+	// res.render('index');
+	console.log(req.body.deletedID);
+	// var data;
+	var selector = {};
+	selector['goodsID'] = req.body.deletedID;
+	// Connect using the connection string
+  	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
+		
+
+		// Fetch a collection to insert document into
+		db.collection("allGoods", function(err, collection) {		    
+
+		// Remove all the document
+			collection.remove(selector, {w:1}, function(err, numberOfRemovedDocs) {
+				// assert.equal(null, err);
+				// assert.equal(1, numberOfRemovedDocs);
+				console.log('numberOfRemovedDocs is : ' + numberOfRemovedDocs);
+				res.send('numberOfRemovedDocs is : ' + numberOfRemovedDocs);
+				db.close();
+			});
+		})
+	
+	});
 };
 
 exports.modifyGoodsByName = function(req, res){

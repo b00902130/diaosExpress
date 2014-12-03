@@ -28,7 +28,7 @@ $('#generate').click(function(){
 		'", rateNum:"' + $('#rateNum').val() +
 		'", saleNum:"' + $('#saleNum').val() +
 		'", collectNum:"' + $('#collectNum').val() +
-		'", inventoryNum:"' + $('#inventoryNum').val() +
+		'", stock:"' + $('#stock').val() +
 		'", verticalMarket:"' + $('#verticalMarket').val() +
 		'", binds:"' + $('#binds').val() +
 		'", saleProps:"' + $('#saleProps').val() +
@@ -40,31 +40,48 @@ $('#generate').click(function(){
 });
 
 
+$('#ggetGoodsByName').click(function(){
+	// alert('getGoodsByName!');
+	var object = {};
+	object.goodsName = $('#queryGoodsName').val();
+
+	$.post("/getGoodsByName", object, function(data){
+		console.log(data);
+		$('#queryGoodsNameResult').text(JSON.stringify(data));
+		//alert('yes call back in generate.js');
+	});
+});
+
+
 $('#getGoodsByID').click(function(){
 	// alert('test!');
 
 	var object = {};
-	object.goodsID = $('#goodsID').val();
+	object.goodsID = $('#queryGoodsID').val();
 
 	$.post("/getGoodsByID", object, function(data){
 		console.log(data);
+
+		$('#queryGoodsIDResult').text(JSON.stringify(data));
 		//alert('yes call back in generate.js');
 	});
 });
 
-$('#getGoodsByName').click(function(){
+// alert('hey?');
+
+
+$('#ggetGoodsListByCategory').click(function(){
+	alert('getGoodsListByCategory!');
 	var object = {};
-	object.categoryID = $('#categoryID').val();
+	object.categoryName = $('#queryCategory').val();
 
-	$.post("/getGoodsByName", object, function(data){
+	$.post("/getGoodsListByCategory", object, function(data){
 		console.log(data);
+
+		$('#queryCategoryResult').text(JSON.stringify(data));
 		//alert('yes call back in generate.js');
 	});
 });
-
-// $('getGoodsListByCategory').click(function(){
-	
-// });
 
 $('#addNewGoods').click(function(){
 
@@ -96,7 +113,7 @@ $('#addNewGoods').click(function(){
 	object.rateNum = $('#rateNum').val();
 	object.saleNum = $('#saleNum').val();
 	object.collectNum = $('#collectNum').val();
-	object.inventoryNum = $('#inventoryNum').val();
+	object.stock = $('#stock').val();
 	object.verticalMarket = $('#verticalMarket').val();
 	object.binds = $('#binds').val();
 	object.saleProps = $('#saleProps').val();
@@ -165,13 +182,29 @@ $('#addNewGoods').click(function(){
 	});
 });
 
-// $('#deleteGoodsByID').click(function(){
-	
-// });
+$('#ddeleteGoodsByID').click(function(){
+	var object = {};
+	object.deletedID = $('#ddeletedID').val();
 
-// $('#deleteGoodsByName').click(function(){
-	
-// });
+	$.post("/deleteGoodsByID", object, function(data){
+		console.log(data);
+		alert('call back deleteGoodsByID!');
+		// $('#queryGoodsNameResult').text(JSON.stringify(data));
+		//alert('yes call back in generate.js');
+	});
+});
+
+$('#ddeleteGoodsByName').click(function(){
+	var object = {};
+	object.deletedName = $('#ddeletedName').val();
+
+	$.post("/deleteGoodsByName", object, function(data){
+		console.log(data);
+		alert('call back deletedName!');
+		// $('#queryGoodsNameResult').text(JSON.stringify(data));
+		//alert('yes call back in generate.js');
+	});
+});
 
 // $('#modifyGoodsByName').click(function(){
 	

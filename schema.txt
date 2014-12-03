@@ -24,7 +24,7 @@ level			String	2239					产品的级别level
 rateNum			String	1234					产品的评分次数
 saleNum			String	1234					产品的销售量
 collectNum		String	12345					产品的collect次数（不提供数据，返回0)
-inventoryNum	String	9992					產品的庫存數量
+stock			String	9992					產品的庫存數量
 
 verticalMarket	String	3						垂直市场,如：3（3C），4（鞋城）
 binds			String	pid:vid;pid:vid			产品的非关键属性列表.格式:pid:vid;pid:vid.
