@@ -86,8 +86,6 @@ exports.addNewGoods = function(req, res){
   	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
 		assert.equal(null, err);
 		var collection = db.collection("allGoods");
-		// var doc = [];
-		// query.categoryID = req.body.goodsID;
 		collection.insert(req.body, function(err, item) {
 			assert.equal(null, err);
 			console.log(item);
@@ -107,11 +105,10 @@ exports.deleteGoodsByName = function(req, res){
 	// Connect using the connection string
   	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
 		
-
 		// Fetch a collection to insert document into
 		db.collection("allGoods", function(err, collection) {		    
 
-		// Remove all the document
+		// Remove the document by selector
 			collection.remove(selector, {w:1}, function(err, numberOfRemovedDocs) {
 				// assert.equal(null, err);
 				// assert.equal(1, numberOfRemovedDocs);
@@ -134,11 +131,10 @@ exports.deleteGoodsByID = function(req, res){
 	// Connect using the connection string
   	MongoClient.connect("mongodb://fountain:opennet@ds051640.mongolab.com:51640/aipustore", {native_parser:true}, function(err, db) {
 		
-
 		// Fetch a collection to insert document into
 		db.collection("allGoods", function(err, collection) {		    
 
-		// Remove all the document
+		// Remove the document by selector
 			collection.remove(selector, {w:1}, function(err, numberOfRemovedDocs) {
 				// assert.equal(null, err);
 				// assert.equal(1, numberOfRemovedDocs);
