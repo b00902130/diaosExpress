@@ -14,7 +14,8 @@ shopPrice		String	9182					产品的店内价格
 standardPrice	String	1392					产品的标准价格
 
 desc			String	这是一款产品				产品的描述.最大25000个字节
-imgURL			String	http://host/image_path	产品的主图片地址.(绝对地址,格式:http://host/image_path)
+bigImgURL		String	http://host/image_path	产品的主图片地址.(绝对地址,格式:http://host/image_path)
+smallImgURL		String	http://host/image_path	产品的主图片地址.(绝对地址,格式:http://host/image_path)
 
 modified		String	2000-01-01 00:00:43		修改时间.格式:yyyy-mm-dd hh:mm:ss
 created			String	2000-01-01 00:00:31		创建时间.格式:yyyy-mm-dd hh:mm:ss
